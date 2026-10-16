@@ -114,9 +114,11 @@
       statusBox.textContent = "เชื่อมต่อ LINE แล้ว พร้อมกรอกข้อมูล";
       submitBtn.disabled = false;
     } catch (error) {
-      statusBox.textContent =
-        "เชื่อมต่อ LINE ไม่สำเร็จ กรุณาลองเปิดฟอร์มจาก LINE อีกครั้ง";
-      console.error(error);
+  statusBox.textContent =
+    "เชื่อมต่อ LINE ไม่สำเร็จ: " +
+    (error.code || "") + " " +
+    (error.message || error);
+  console.error(error);
     }
   }
 
